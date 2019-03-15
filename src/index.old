@@ -1,0 +1,23 @@
+import express from 'express';
+import Beer from './models/beer.js';
+import config from './config.js';
+// import dbconnect, { nombre } from './config.js';
+
+config.dbConnect();
+
+Beer.create({ name: 'stella' }, (err, beer) => {
+  if (err) return console.log(err);
+  console.log(beer);
+});
+
+Beer.find({ name: 'tecate' }, (err, listaDeCheves) => {
+  if (err) {
+    return console.log(err);
+  }
+  console.log(listaDeCheves);
+});
+// console.log(dbconnect);
+/*
+dbconnect();
+console.log(nombre);
+*/
